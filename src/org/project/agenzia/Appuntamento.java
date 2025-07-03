@@ -18,14 +18,14 @@ public class Appuntamento implements Stampabile {
     public Appuntamento(String titolo, String descrizione, String data, String orario) {
         this.titolo = titolo;
         this.descrizione = descrizione;
-        this.data = data;
-        this.orario = orario;
+        setData(data);
+        setOrario(orario);
     }
 
     public Appuntamento(String titolo, String data, String orario) {
         this.titolo = titolo;
-        this.data = data;
-        this.orario = orario;
+        setData(data);
+        setOrario(orario);
     }
 
     public String getTitolo() {
@@ -60,7 +60,7 @@ public class Appuntamento implements Stampabile {
         try {
             LocalDate dataFormattata = LocalDate.parse(newData, dateFormatter);
             if (dataFormattata.isAfter(LocalDate.now())) {
-                this.data = newData;
+                this.data = dataFormattata.format(dateFormatter);
             } else {
                 System.out.println("La data inserita non è valida: non è futura!");
             }
@@ -75,7 +75,7 @@ public class Appuntamento implements Stampabile {
             LocalTime orarioFormattato = LocalTime.parse(newOrario, timeFormatter);
             int ora = orarioFormattato.getHour();
             if (ora >= 8 && ora < 18 && ora != 12) {
-                this.orario = newOrario;
+                this.orario = orarioFormattato.format(timeFormatter);
             } else {
                 System.out
                         .println("L'orario non rientra nelle ore di ricezione appuntamento (08-12 e 13-18)");
@@ -87,12 +87,17 @@ public class Appuntamento implements Stampabile {
 
     @Override
     public void stampaDettagli() {
-        System.out.println("Appuntamento");
-        System.out.println("Titolo: " + this.titolo);
-        System.out.println("Descrizione: " + this.descrizione);
-        System.out.println("Data: " + this.data);
-        System.out.println("Orario: " + this.orario);
-        System.out.println("--------------------");
+
+        if (this.titolo != null && this.data != null && this.orario != null) {
+            System.out.println("Appuntamento");
+            System.out.println("Titolo: " + this.titolo);
+            System.out.println("Descrizione: " + getDescrizione());
+            System.out.println("Data: " + this.data);
+            System.out.println("Orario: " + this.orario);
+            System.out.println("--------------------");
+        } else {
+            System.out.println("Uno o più dati essenziali mancanti!");
+        }
     }
 
     @Override

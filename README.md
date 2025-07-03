@@ -114,7 +114,7 @@ Questo progetto è pensato per chi ha appena iniziato a studiare Java e vuole es
 
 ## 📌 Autore
 
-Defendi Mattia
-Progetto realizzato come esercitazione personale per lo studio di Java.  
+Defendi Mattia,
+progetto realizzato come esercitazione personale per lo studio di Java.  
 
 

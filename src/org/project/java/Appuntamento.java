@@ -85,4 +85,14 @@ public class Appuntamento {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Appuntamento {" +
+                "titolo=" + this.titolo +
+                ", descrizione=" + this.descrizione +
+                ", data=" + this.data +
+                ", orario= " + this.orario +
+                "}";
+    }
+
 }

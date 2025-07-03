@@ -16,14 +16,14 @@ public class Appuntamento implements Stampabile {
     private String orario; // formato hh:mm
 
     public Appuntamento(String titolo, String descrizione, String data, String orario) {
-        this.titolo = titolo;
-        this.descrizione = descrizione;
+        this.titolo = titolo.toLowerCase().strip();
+        this.descrizione = descrizione.toLowerCase().strip();
         setData(data);
         setOrario(orario);
     }
 
     public Appuntamento(String titolo, String data, String orario) {
-        this.titolo = titolo;
+        this.titolo = titolo.toLowerCase().strip();
         setData(data);
         setOrario(orario);
     }

@@ -1,12 +1,14 @@
 package org.project.java;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 public class Appuntamento {
 
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
     private String titolo;
     private String descrizione;
@@ -69,7 +71,18 @@ public class Appuntamento {
     }
 
     public void setOrario(String newOrario) {
-        this.orario = newOrario;
+        try {
+            LocalTime orarioFormattato = LocalTime.parse(newOrario, timeFormatter);
+            int ora = orarioFormattato.getHour();
+            if (ora >= 8 && ora < 18 && ora != 12) {
+                this.orario = newOrario;
+            } else {
+                System.out
+                        .println("L'orario non rientra nelle ore di ricezione appuntamento (08-12 e 13-18)");
+            }
+        } catch (DateTimeParseException exception) {
+            System.out.println("Formato orario non valido!");
+        }
     }
 
 }

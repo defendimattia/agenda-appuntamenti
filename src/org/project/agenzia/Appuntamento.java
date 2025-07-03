@@ -37,7 +37,6 @@ public class Appuntamento implements Stampabile {
             return "Nessuna descrizione";
         }
         return this.descrizione;
-
     }
 
     public String getData() {
@@ -67,7 +66,6 @@ public class Appuntamento implements Stampabile {
         } catch (DateTimeParseException exception) {
             System.out.println("Formato data non valido!");
         }
-
     }
 
     public void setOrario(String newOrario) {
@@ -109,5 +107,4 @@ public class Appuntamento implements Stampabile {
                 ", orario= " + this.orario +
                 "}";
     }
-
 }

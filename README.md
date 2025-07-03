@@ -49,7 +49,7 @@ Contiene e gestisce una lista di appuntamenti.
 - `visualizzaAppuntamenti()`
 - `cercaPerData(String data)`
 - `rimuoviAppuntamento(String titolo)`
-- `static int contaAppuntamenti()`
+- `int contaAppuntamenti()`
 
 ---
 

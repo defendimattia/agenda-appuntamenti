@@ -30,7 +30,7 @@ public class Agenda {
             }
         }
 
-        if (appuntamentiTrovati.size() == 0) {
+        if (appuntamentiTrovati.isEmpty()) {
             System.out.println("Nessun appuntamento trovato");
         } else {
             for (Appuntamento appuntamento : appuntamentiTrovati) {
@@ -39,8 +39,8 @@ public class Agenda {
         }
     }
 
-    static int contaAppuntamenti() {
-
+    public int contaAppuntamenti() {
+        return listaAppuntamenti.size();
     }
 
 }

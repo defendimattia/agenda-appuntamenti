@@ -1,11 +1,11 @@
-package org.project.java;
+package org.project.agenzia;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-public class Appuntamento {
+public class Appuntamento implements Stampabile {
 
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private static final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
@@ -83,6 +83,16 @@ public class Appuntamento {
         } catch (DateTimeParseException exception) {
             System.out.println("Formato orario non valido!");
         }
+    }
+
+    @Override
+    public void stampaDettagli() {
+        System.out.println("Appuntamento");
+        System.out.println("Titolo: " + this.titolo);
+        System.out.println("Descrizione: " + this.descrizione);
+        System.out.println("Data: " + this.data);
+        System.out.println("Orario: " + this.orario);
+        System.out.println("--------------------");
     }
 
     @Override

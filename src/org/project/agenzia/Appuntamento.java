@@ -33,7 +33,7 @@ public class Appuntamento implements Stampabile {
     }
 
     public String getDescrizione() {
-        if (this.descrizione == null) {
+        if (this.descrizione == null || this.descrizione.isBlank()) {
             return "Nessuna descrizione";
         }
         return this.descrizione;
@@ -48,17 +48,17 @@ public class Appuntamento implements Stampabile {
     }
 
     public void setTitolo(String newTitolo) {
-        this.titolo = newTitolo;
+        this.titolo = newTitolo.toLowerCase().strip();
     }
 
     public void setDescrizione(String newDescrizione) {
-        this.descrizione = newDescrizione;
+        this.descrizione = newDescrizione.toLowerCase().strip();
     }
 
     public void setData(String newData) {
         try {
             LocalDate dataFormattata = LocalDate.parse(newData, dateFormatter);
-            if (dataFormattata.isAfter(LocalDate.now())) {
+            if (!dataFormattata.isBefore(LocalDate.now())) {
                 this.data = dataFormattata.format(dateFormatter);
             } else {
                 System.out.println("La data inserita non è valida: non è futura!");

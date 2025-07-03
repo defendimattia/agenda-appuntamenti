@@ -1,6 +1,12 @@
 package org.project.java;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 public class Appuntamento {
+
+    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private String titolo;
     private String descrizione;
@@ -19,4 +25,51 @@ public class Appuntamento {
         this.data = data;
         this.orario = orario;
     }
+
+    public String getTitolo() {
+        return this.titolo;
+    }
+
+    public String getDescrizione() {
+        if (this.descrizione == null) {
+            return "Nessuna descrizione";
+        }
+        return this.descrizione;
+
+    }
+
+    public String getData() {
+        return this.data;
+    }
+
+    public String getOrario() {
+        return this.orario;
+    }
+
+    public void setTitolo(String newTitolo) {
+        this.titolo = newTitolo;
+    }
+
+    public void setDescrizione(String newDescrizione) {
+        this.descrizione = newDescrizione;
+    }
+
+    public void setData(String newData) {
+        try {
+            LocalDate dataFormattata = LocalDate.parse(newData, dateFormatter);
+            if (dataFormattata.isAfter(LocalDate.now())) {
+                this.data = newData;
+            } else {
+                System.out.println("La data inserita non è valida: non è futura!");
+            }
+        } catch (DateTimeParseException exception) {
+            System.out.println("Formato data non valido!");
+        }
+
+    }
+
+    public void setOrario(String newOrario) {
+        this.orario = newOrario;
+    }
+
 }

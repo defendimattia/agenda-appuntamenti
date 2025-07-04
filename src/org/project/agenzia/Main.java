@@ -21,26 +21,63 @@ public class Main {
             System.out.print("Scegli un numero: ");
             try {
                 int userInput = scanner.nextInt();
+                scanner.nextLine();
 
                 switch (userInput) {
                     case 1:
+                        System.out.println("------------------------------");
+                        System.out.println("Inserisci titolo dell'appuntamento");
+                        String titoloInput = scanner.nextLine();
+                        System.out.println("Inserisci la data dell'appuntamento in formato gg/mm/aaaa");
+                        String dataInput = scanner.nextLine();
+                        System.out.println("Inserisci l'ora dell'appuntamento in formato hh:mm");
+                        String orarioInput = scanner.nextLine();
+                        System.out.println("Vuoi inserire una descrizione? (si/no)");
+                        String hasDescrizione = scanner.nextLine();
+
+                        Appuntamento newAppuntamento;
+
+                        if (hasDescrizione.equalsIgnoreCase("si")) {
+                            System.out.println("Inserisci descrizione");
+                            String descrizioneInput = scanner.nextLine();
+                            newAppuntamento = new Appuntamento(titoloInput, descrizioneInput, dataInput,
+                                    orarioInput);
+                        } else {
+                            newAppuntamento = new Appuntamento(titoloInput, dataInput,
+                                    orarioInput);
+                        }
+
+                        Agenda.aggiungiAppuntamento(newAppuntamento);
+
+                        System.out.println("------------------------------");
 
                         break;
 
                     case 2:
+                        System.out.println("------------------------------");
+
+                        System.out.println("------------------------------");
 
                         break;
 
                     case 3:
+                        System.out.println("------------------------------");
+
+                        System.out.println("------------------------------");
 
                         break;
 
                     case 4:
+                        System.out.println("------------------------------");
+
+                        System.out.println("------------------------------");
 
                         break;
 
                     case 5:
-                        System.out.println(Agenda.contaAppuntamenti());
+                        System.out.println("------------------------------");
+                        System.out.println("Numero appuntamenti: " + Agenda.contaAppuntamenti());
+                        System.out.println("------------------------------");
                         break;
 
                     case 6:

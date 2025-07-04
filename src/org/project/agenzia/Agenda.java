@@ -10,8 +10,12 @@ public class Agenda {
         listaAppuntamenti.add(newAppuntamento);
     }
 
-    public void rimuoviAppuntamento(Appuntamento appuntamentoToDelete) {
-        listaAppuntamenti.remove(appuntamentoToDelete);
+    public void rimuoviAppuntamento(String titoloAppuntamentoToDelete) {
+
+        for (int i = listaAppuntamenti.size() - 1; i >= 0; i--)
+            if (listaAppuntamenti.get(i).getTitolo().equals(titoloAppuntamentoToDelete)) {
+                listaAppuntamenti.remove(i);
+            }
     }
 
     public void visualizzaAppuntamenti() {

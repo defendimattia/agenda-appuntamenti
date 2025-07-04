@@ -48,7 +48,6 @@ public class Main {
                         }
 
                         Agenda.aggiungiAppuntamento(newAppuntamento);
-
                         System.out.println("------------------------------");
 
                         break;
@@ -62,7 +61,9 @@ public class Main {
 
                     case 3:
                         System.out.println("------------------------------");
-
+                        System.out.println("Inserisci la data dell'appuntamento in formato gg/mm/aaaa");
+                        String searchDataInput = scanner.nextLine();
+                        Agenda.cercaPerData(searchDataInput);
                         System.out.println("------------------------------");
 
                         break;

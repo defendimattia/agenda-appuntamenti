@@ -66,7 +66,7 @@ Contiene il menu interattivo da console per usare l’agenda.
 
 **Esempio di menu:**
  
- Benvenuto nella tua Agenda!
+    Benvenuto nella tua Agenda!
 
     Aggiungi appuntamento
 

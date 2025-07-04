@@ -13,7 +13,7 @@ public class Agenda {
     public static void rimuoviAppuntamento(String titoloAppuntamentoToDelete) {
 
         for (int i = listaAppuntamenti.size() - 1; i >= 0; i--)
-            if (listaAppuntamenti.get(i).getTitolo().equals(titoloAppuntamentoToDelete)) {
+            if (listaAppuntamenti.get(i).getTitolo().equalsIgnoreCase(titoloAppuntamentoToDelete)) {
                 listaAppuntamenti.remove(i);
             }
     }

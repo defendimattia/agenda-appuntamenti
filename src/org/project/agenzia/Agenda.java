@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Agenda {
 
-    private ArrayList<Appuntamento> listaAppuntamenti = new ArrayList<>();
+    private static ArrayList<Appuntamento> listaAppuntamenti = new ArrayList<>();
 
-    public void aggiungiAppuntamento(Appuntamento newAppuntamento) {
+    public static void aggiungiAppuntamento(Appuntamento newAppuntamento) {
         listaAppuntamenti.add(newAppuntamento);
     }
 
-    public void rimuoviAppuntamento(String titoloAppuntamentoToDelete) {
+    public static void rimuoviAppuntamento(String titoloAppuntamentoToDelete) {
 
         for (int i = listaAppuntamenti.size() - 1; i >= 0; i--)
             if (listaAppuntamenti.get(i).getTitolo().equals(titoloAppuntamentoToDelete)) {
@@ -18,14 +18,14 @@ public class Agenda {
             }
     }
 
-    public void visualizzaAppuntamenti() {
+    public static void visualizzaAppuntamenti() {
         for (Appuntamento appuntamento : listaAppuntamenti) {
             System.out
                     .println(appuntamento.getTitolo() + " " + appuntamento.getData() + " " + appuntamento.getOrario());
         }
     }
 
-    public void cercaPerData(String dataToSearch) {
+    public static void cercaPerData(String dataToSearch) {
         ArrayList<Appuntamento> appuntamentiTrovati = new ArrayList<>();
 
         for (Appuntamento appuntamento : listaAppuntamenti) {
@@ -43,7 +43,7 @@ public class Agenda {
         }
     }
 
-    public int contaAppuntamenti() {
+    public static int contaAppuntamenti() {
         return listaAppuntamenti.size();
     }
 

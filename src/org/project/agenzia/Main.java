@@ -70,7 +70,9 @@ public class Main {
 
                     case 4:
                         System.out.println("------------------------------");
-
+                        System.out.println("Inserisci il titolo dell'appuntamento da rimuovere");
+                        String titoloAppuntamentoToDelete = scanner.nextLine();
+                        Agenda.rimuoviAppuntamento(titoloAppuntamentoToDelete);
                         System.out.println("------------------------------");
 
                         break;
